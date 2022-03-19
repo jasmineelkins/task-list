@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  padding: 30px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  text-decoration: none;
+  background-color: pink;
+  border: 1px solid red;
+  padding: 5px;
+}
+
+span {
+  text-align: right;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  /* border: 1px solid cyan; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hovering {
+  background-color: #333;
+}
