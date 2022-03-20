@@ -1,18 +1,30 @@
 import React, { useState } from "react";
 
-function Item(props) {
-  function changeClass() {
-    // need to initialize & use state to change button color
-    // even for hover? look it up..
+function Item({ isDark, name, status, priority, id, handleRemove }) {
+  const [hovered, setHovered] = useState(false);
+
+  function toggleHover() {
+    setHovered(!hovered);
   }
+
+  const darkMode = isDark ? "task dark" : "task";
+  //   const darkBtn = isDark ? "dark" : "";
+  //  still need to update buttons for dark mode
 
   return (
     <>
-      <li className="task">
-        <span>{props.name}</span>
-        <span>{props.priority}</span>
-        <span>{props.status}</span>
-        <button onMouseOver={changeClass}>Delete</button>
+      <li className={darkMode}>
+        <span className="taskName">{name}</span>
+        <span>{priority}</span>
+        <span>{status}</span>
+        <button
+          className={hovered ? "hovering" : ""}
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+          //   onClick={handleRemove(id)}
+        >
+          Delete
+        </button>
       </li>
     </>
   );

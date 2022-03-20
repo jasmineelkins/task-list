@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 import List from "./List";
+import Header from "./Header";
+import Input from "./Input";
 import tasks from "../data/tasks";
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+  const [list, setList] = useState(tasks);
+
+  function handleAddItem(itemName) {
+    const newList = [...list, { name: itemName }];
+    setList(newList);
+  }
+
+  function toggleDarkMode() {
+    setIsDark(!isDark);
+    console.log("clicked");
+  }
+
+  //   const darkMode = isDark ? "App dark" : "";
+
   return (
     <>
-      <h1>Task List</h1>
-      {/* <ul>List items go here:</ul> */}
-      <List tasks={tasks} />
+      <Header isDark={isDark} toggleDarkMode={toggleDarkMode} />
+      <Input addItem={handleAddItem} />
+      <List tasks={tasks} isDark={isDark} list={list} />
     </>
   );
 }
@@ -16,8 +33,8 @@ export default App;
 
 // objectives:
 // basic styling...
-// add button toggle dark mode
-// header component
+// ✔️ add button toggle dark mode
+// ✔️ header component
 // delete button functionality - state
 // delete button trash can icon
 // dropdown/select priority - state
